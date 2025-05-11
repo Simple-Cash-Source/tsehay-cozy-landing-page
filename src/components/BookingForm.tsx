@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Calendar } from "@/components/ui/calendar";
@@ -10,7 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from 'date-fns';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { createBooking, getAvailableTables } from '../services/mockData';
-import { TableAvailability } from '../types';
+import { TableAvailability, Booking } from '../types';
 
 interface BookingFormProps {}
 
@@ -68,7 +67,8 @@ const BookingForm: React.FC<BookingFormProps> = () => {
 
     try {
       const formattedDate = format(date, 'yyyy-MM-dd');
-      const booking = {
+      // Fix: explicitly type the status as one of the allowed values from the Booking interface
+      const booking: Omit<Booking, "id"> = {
         name,
         email,
         phone,
@@ -76,7 +76,7 @@ const BookingForm: React.FC<BookingFormProps> = () => {
         time,
         guests,
         specialRequests,
-        status: 'pending' // Setting initial status as pending
+        status: 'pending' as const // Using 'as const' to ensure TypeScript treats this as a literal type
       };
 
       await createBooking(booking);
