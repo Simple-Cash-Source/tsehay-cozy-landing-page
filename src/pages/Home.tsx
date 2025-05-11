@@ -34,21 +34,23 @@ const Home = () => {
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1540914124281-342587941389?w=1200&auto=format&fit=crop&q=60')" }}></div>
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-restaurant-dark-green mb-4 font-playfair animate-fade-in">
-            Tsehay Kitfo
-          </h1>
-          <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto animate-fade-in">
-            Authentic Ethiopian Cuisine in a Warm Family Atmosphere
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <Link to="/menu" className="btn-primary flex items-center justify-center gap-2">
-              <ChefHat size={20} />
-              <span>View Our Menu</span>
-            </Link>
-            <Link to="/booking" className="btn-outline flex items-center justify-center gap-2">
-              <Calendar size={20} />
-              <span>Book a Table</span>
-            </Link>
+          <div className="bg-restaurant-cream/70 backdrop-blur-sm p-6 md:p-10 rounded-lg inline-block mx-auto shadow-lg">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-restaurant-dark-green mb-4 font-playfair animate-fade-in">
+              Tsehay Kitfo
+            </h1>
+            <p className="text-xl md:text-2xl text-restaurant-dark-green mb-8 max-w-2xl mx-auto animate-fade-in">
+              Authentic Ethiopian Cuisine in a Warm Family Atmosphere
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+              <Link to="/menu" className="btn-primary flex items-center justify-center gap-2">
+                <ChefHat size={20} />
+                <span>View Our Menu</span>
+              </Link>
+              <Link to="/booking" className="bg-[#01534A] hover:bg-restaurant-brown text-white transition-colors font-medium px-5 py-2 rounded-md flex items-center justify-center gap-2">
+                <Calendar size={20} />
+                <span>Book a Table</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -104,12 +106,14 @@ const Home = () => {
       <section className="bg-restaurant-cream py-24">
         <div className="section-padding">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-restaurant-earth mb-4">
-              Featured Dishes
-            </h2>
-            <p className="text-gray-700 max-w-2xl mx-auto">
-              Explore our most popular Ethiopian specialties, prepared with authentic spices and traditional cooking methods.
-            </p>
+            <div className="bg-restaurant-cream/70 backdrop-blur-sm p-6 rounded-lg inline-block mx-auto shadow-sm">
+              <h2 className="text-3xl md:text-4xl font-bold font-playfair text-restaurant-earth mb-4">
+                Featured Dishes
+              </h2>
+              <p className="text-gray-700 max-w-2xl mx-auto">
+                Explore our most popular Ethiopian specialties, prepared with authentic spices and traditional cooking methods.
+              </p>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -132,16 +136,18 @@ const Home = () => {
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative section-padding">
           <div className="text-center text-white space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-playfair">
-              Reserve Your Table
-            </h2>
-            <p className="text-lg max-w-2xl mx-auto">
-              Experience the flavors of Ethiopia in our cozy family restaurant. Book a table now to avoid disappointment.
-            </p>
-            <div className="pt-4">
-              <Link to="/booking" className="btn-primary">
-                Book a Table
-              </Link>
+            <div className="bg-restaurant-cream/70 backdrop-blur-sm p-6 md:p-8 rounded-lg inline-block mx-auto shadow-lg">
+              <h2 className="text-3xl md:text-4xl font-bold font-playfair text-restaurant-dark-green">
+                Reserve Your Table
+              </h2>
+              <p className="text-lg max-w-2xl mx-auto text-restaurant-dark-green mt-2">
+                Experience the flavors of Ethiopia in our cozy family restaurant. Book a table now to avoid disappointment.
+              </p>
+              <div className="pt-6">
+                <Link to="/booking" className="bg-[#01534A] hover:bg-restaurant-brown text-white transition-colors font-medium px-6 py-3 rounded-md inline-block">
+                  Book a Table
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -150,12 +156,14 @@ const Home = () => {
       {/* Gallery Teaser Section */}
       <section className="section-padding py-24">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-playfair text-restaurant-earth mb-4">
-            Our Restaurant
-          </h2>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Step inside our warm and inviting space, designed to bring a taste of Ethiopia to your dining experience.
-          </p>
+          <div className="bg-restaurant-cream/70 backdrop-blur-sm p-6 rounded-lg inline-block mx-auto shadow-sm">
+            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-restaurant-earth mb-4">
+              Our Restaurant
+            </h2>
+            <p className="text-gray-700 max-w-2xl mx-auto">
+              Step inside our warm and inviting space, designed to bring a taste of Ethiopia to your dining experience.
+            </p>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-4">

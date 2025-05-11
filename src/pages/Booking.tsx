@@ -41,13 +41,16 @@ const Booking = () => {
       <section className="bg-restaurant-cream py-16">
         <div className="section-padding">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold font-playfair text-restaurant-dark-green mb-6">
-              Private Events & Catering
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Looking to host a private event or need catering services? Tsehay Kitfo offers customized menus and services for special occasions.
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-restaurant-cream/70 backdrop-blur-sm p-6 rounded-lg shadow-sm">
+              <h2 className="text-3xl font-bold font-playfair text-restaurant-dark-green mb-6">
+                Private Events & Catering
+              </h2>
+              <p className="text-gray-700 mb-6">
+                Looking to host a private event or need catering services? Tsehay Kitfo offers customized menus and services for special occasions.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mt-8">
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-semibold text-restaurant-earth mb-3">Private Dining</h3>
                 <p className="text-gray-700 mb-4">

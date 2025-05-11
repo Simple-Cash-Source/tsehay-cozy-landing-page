@@ -75,7 +75,8 @@ const BookingForm: React.FC<BookingFormProps> = () => {
         date: formattedDate,
         time,
         guests,
-        specialRequests
+        specialRequests,
+        status: 'pending' // Setting initial status as pending
       };
 
       await createBooking(booking);
@@ -228,7 +229,7 @@ const BookingForm: React.FC<BookingFormProps> = () => {
 
       {/* Available Tables Info */}
       {date && availableTables.length > 0 && (
-        <div className="bg-restaurant-cream p-4 rounded-md">
+        <div className="bg-restaurant-cream/70 p-4 rounded-md backdrop-blur-sm shadow-sm">
           <p className="text-restaurant-earth font-medium">
             {availableTables.length} {availableTables.length === 1 ? 'table' : 'tables'} available for this date!
           </p>
@@ -245,7 +246,7 @@ const BookingForm: React.FC<BookingFormProps> = () => {
 
       <Button 
         type="submit" 
-        className="w-full bg-restaurant-earth hover:bg-restaurant-brown text-white"
+        className="w-full bg-[#01534A] hover:bg-restaurant-brown text-white"
         disabled={isSubmitting || (date && availableTables.length === 0)}
       >
         {isSubmitting ? 'Booking...' : 'Book Table'}

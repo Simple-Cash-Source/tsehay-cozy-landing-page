@@ -25,6 +25,7 @@ export interface Booking {
   guests: number;
   tableId?: string;
   specialRequests?: string;
+  status: 'pending' | 'confirmed' | 'canceled' | 'completed';
 }
 
 export interface GalleryImage {

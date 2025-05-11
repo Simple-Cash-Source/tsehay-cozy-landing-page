@@ -1,5 +1,48 @@
 import { MenuItem, TableAvailability, Booking, GalleryImage } from '../types';
 
+// In-memory storage for our mock database
+const storage = {
+  bookings: [] as Booking[],
+  tables: [
+    {
+      id: "t1",
+      tableNumber: 1,
+      capacity: 2,
+      isAvailable: true
+    },
+    {
+      id: "t2",
+      tableNumber: 2,
+      capacity: 4,
+      isAvailable: true
+    },
+    {
+      id: "t3",
+      tableNumber: 3,
+      capacity: 6,
+      isAvailable: false
+    },
+    {
+      id: "t4",
+      tableNumber: 4,
+      capacity: 4,
+      isAvailable: true
+    },
+    {
+      id: "t5",
+      tableNumber: 5,
+      capacity: 8,
+      isAvailable: true
+    },
+    {
+      id: "t6",
+      tableNumber: 6,
+      capacity: 2,
+      isAvailable: false
+    },
+  ] as TableAvailability[],
+};
+
 // Mock menu items
 export const menuItems: MenuItem[] = [
   {
@@ -52,46 +95,6 @@ export const menuItems: MenuItem[] = [
   },
 ];
 
-// Mock table availability data
-export const tables: TableAvailability[] = [
-  {
-    id: "t1",
-    tableNumber: 1,
-    capacity: 2,
-    isAvailable: true
-  },
-  {
-    id: "t2",
-    tableNumber: 2,
-    capacity: 4,
-    isAvailable: true
-  },
-  {
-    id: "t3",
-    tableNumber: 3,
-    capacity: 6,
-    isAvailable: false
-  },
-  {
-    id: "t4",
-    tableNumber: 4,
-    capacity: 4,
-    isAvailable: true
-  },
-  {
-    id: "t5",
-    tableNumber: 5,
-    capacity: 8,
-    isAvailable: true
-  },
-  {
-    id: "t6",
-    tableNumber: 6,
-    capacity: 2,
-    isAvailable: false
-  },
-];
-
 // Mock gallery images
 export const galleryImages: GalleryImage[] = [
   {
@@ -132,48 +135,98 @@ export const galleryImages: GalleryImage[] = [
   }
 ];
 
-// Mock data service functions
+// Get all menu items
 export const getMenuItems = (): Promise<MenuItem[]> => {
   return new Promise((resolve) => {
     setTimeout(() => resolve(menuItems), 300);
   });
 };
 
+// Get available tables for a specific date
 export const getAvailableTables = (date: string): Promise<TableAvailability[]> => {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(tables), 300);
+    // Check which tables are already booked for this date
+    const bookedTableIds = storage.bookings
+      .filter(booking => booking.date === date && booking.status !== 'canceled')
+      .map(booking => booking.tableId);
+
+    // Update availability based on bookings
+    const availableTables = storage.tables.map(table => ({
+      ...table,
+      isAvailable: bookedTableIds.includes(table.id) ? false : table.isAvailable
+    }));
+
+    setTimeout(() => resolve(availableTables), 300);
   });
 };
 
+// Get all gallery images
 export const getGalleryImages = (): Promise<GalleryImage[]> => {
   return new Promise((resolve) => {
     setTimeout(() => resolve(galleryImages), 300);
   });
 };
 
+// Create a new booking
 export const createBooking = (booking: Omit<Booking, "id">): Promise<Booking> => {
   return new Promise((resolve) => {
+    // Find an available table that matches the guest count
+    const availableTable = storage.tables.find(t => 
+      t.isAvailable && t.capacity >= booking.guests && !storage.bookings
+        .filter(b => b.date === booking.date && b.time === booking.time && b.status !== 'canceled')
+        .some(b => b.tableId === t.id)
+    );
+
     const newBooking = {
       ...booking,
-      id: `booking-${Date.now()}`
+      id: `booking-${Date.now()}`,
+      tableId: availableTable?.id || undefined
     };
+    
+    // Save to our mock storage
+    storage.bookings.push(newBooking);
+    
     setTimeout(() => resolve(newBooking), 500);
   });
 };
 
+// Get all bookings (for admin)
+export const getAllBookings = (): Promise<Booking[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve([...storage.bookings]), 300);
+  });
+};
+
+// Update booking status
+export const updateBookingStatus = (bookingId: string, status: Booking['status']): Promise<Booking> => {
+  return new Promise((resolve, reject) => {
+    const index = storage.bookings.findIndex(booking => booking.id === bookingId);
+    
+    if (index === -1) {
+      reject(new Error("Booking not found"));
+      return;
+    }
+    
+    storage.bookings[index].status = status;
+    setTimeout(() => resolve(storage.bookings[index]), 300);
+  });
+};
+
+// Update table availability
 export const updateTableAvailability = (tableId: string, isAvailable: boolean): Promise<TableAvailability> => {
   return new Promise((resolve, reject) => {
-    const table = tables.find(t => t.id === tableId);
-    if (!table) {
+    const index = storage.tables.findIndex(t => t.id === tableId);
+    if (index === -1) {
       reject(new Error("Table not found"));
       return;
     }
     
-    table.isAvailable = isAvailable;
-    setTimeout(() => resolve(table), 300);
+    storage.tables[index].isAvailable = isAvailable;
+    setTimeout(() => resolve(storage.tables[index]), 300);
   });
 };
 
+// Update menu item
 export const updateMenuItem = (menuItem: MenuItem): Promise<MenuItem> => {
   return new Promise((resolve, reject) => {
     const index = menuItems.findIndex(item => item.id === menuItem.id);
@@ -187,6 +240,7 @@ export const updateMenuItem = (menuItem: MenuItem): Promise<MenuItem> => {
   });
 };
 
+// Add menu item
 export const addMenuItem = (menuItem: Omit<MenuItem, "id">): Promise<MenuItem> => {
   return new Promise((resolve) => {
     const newItem = {
