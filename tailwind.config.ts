@@ -64,10 +64,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				restaurant: {
-					'brown': '#8B4513',
+					'brown': '#016257', // Changed from #8B4513 to green
 					'gold': '#D4AF37',
 					'cream': '#FFFDD0',
-					'earth': '#5E3A1A',
+					'earth': '#016257', // Changed from #5E3A1A to green
 					'sage': '#BCB88A',
 				},
 			},

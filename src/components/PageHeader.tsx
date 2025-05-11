@@ -14,7 +14,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, subtitle, backgroundImag
       style={{ 
         backgroundImage: backgroundImage 
           ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})` 
-          : 'linear-gradient(rgba(139, 69, 19, 0.8), rgba(94, 58, 26, 0.9))'
+          : 'linear-gradient(rgba(1, 98, 87, 0.8), rgba(1, 98, 87, 0.9))' // Changed from brown to green
       }}
     >
       <div className="absolute inset-0 bg-black opacity-40"></div>

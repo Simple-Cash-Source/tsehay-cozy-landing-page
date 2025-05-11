@@ -14,24 +14,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 30 10% 15%;
 
-    --primary: 30 60% 25%;
+    --primary: 168 93% 20%; /* Changed from brown to green */
     --primary-foreground: 30 33% 97%;
 
     --secondary: 40 50% 90%;
-    --secondary-foreground: 30 60% 25%;
+    --secondary-foreground: 168 93% 20%; /* Changed from brown to green */
 
     --muted: 40 20% 96%;
     --muted-foreground: 30 10% 40%;
 
     --accent: 40 40% 85%;
-    --accent-foreground: 30 60% 25%;
+    --accent-foreground: 168 93% 20%; /* Changed from brown to green */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 30 15% 85%;
     --input: 30 15% 85%;
-    --ring: 30 60% 25%;
+    --ring: 168 93% 20%; /* Changed from brown to green */
 
     --radius: 0.5rem;
   }

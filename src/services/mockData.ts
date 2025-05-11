@@ -1,5 +1,4 @@
-
-import { MenuItem, TableAvailability, GalleryImage } from "../types";
+import { MenuItem, TableAvailability, Booking, GalleryImage } from '../types';
 
 // Mock menu items
 export const menuItems: MenuItem[] = [
@@ -24,7 +23,7 @@ export const menuItems: MenuItem[] = [
     name: "Vegetarian Combo",
     description: "A combination of various vegetarian dishes including misir wot (spicy red lentils), kik alicha (split peas), gomen (collard greens), and tikil gomen (cabbage and carrots).",
     price: 14.99,
-    image: "https://images.unsplash.com/photo-1567982047351-76b6f93e9073?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1567982047351-7935297eff55?w=800&auto=format&fit=crop&q=80",
     category: "Vegetarian"
   },
   {
