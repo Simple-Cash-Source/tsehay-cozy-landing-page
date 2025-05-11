@@ -1,8 +1,12 @@
+
 import React from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import BookingManagement from '@/components/admin/BookingManagement';
+import MenuManagement from '@/components/admin/MenuManagement';
+import TableManagement from '@/components/admin/TableManagement';
+import GalleryManagement from '@/components/admin/GalleryManagement';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const AdminDashboard = () => {
@@ -51,21 +55,15 @@ const AdminDashboard = () => {
           </TabsContent>
           
           <TabsContent value="menu" className="p-6 bg-white rounded-lg shadow">
-            <h2 className="text-2xl font-bold text-restaurant-dark-green mb-4">Menu Management</h2>
-            <p className="text-gray-500">Manage restaurant menu items here.</p>
-            {/* Menu management component would go here */}
+            <MenuManagement />
           </TabsContent>
           
           <TabsContent value="tables" className="p-6 bg-white rounded-lg shadow">
-            <h2 className="text-2xl font-bold text-restaurant-dark-green mb-4">Table Management</h2>
-            <p className="text-gray-500">Configure table availability here.</p>
-            {/* Table management component would go here */}
+            <TableManagement />
           </TabsContent>
           
           <TabsContent value="gallery" className="p-6 bg-white rounded-lg shadow">
-            <h2 className="text-2xl font-bold text-restaurant-dark-green mb-4">Gallery Management</h2>
-            <p className="text-gray-500">Update restaurant gallery photos here.</p>
-            {/* Gallery management component would go here */}
+            <GalleryManagement />
           </TabsContent>
         </Tabs>
       </main>

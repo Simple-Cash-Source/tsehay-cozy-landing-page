@@ -1,3 +1,4 @@
+
 import { MenuItem, TableAvailability, Booking, GalleryImage } from '../types';
 
 // In-memory storage for our mock database
@@ -250,5 +251,56 @@ export const addMenuItem = (menuItem: Omit<MenuItem, "id">): Promise<MenuItem> =
     
     menuItems.push(newItem);
     setTimeout(() => resolve(newItem), 300);
+  });
+};
+
+// Add a gallery image
+export const addGalleryImage = (image: Omit<GalleryImage, "id">): Promise<GalleryImage> => {
+  return new Promise((resolve) => {
+    const newImage = {
+      ...image,
+      id: `gallery-${Date.now()}`
+    };
+    
+    galleryImages.push(newImage);
+    setTimeout(() => resolve(newImage), 300);
+  });
+};
+
+// Update a gallery image
+export const updateGalleryImage = (image: GalleryImage): Promise<GalleryImage> => {
+  return new Promise((resolve, reject) => {
+    const index = galleryImages.findIndex(img => img.id === image.id);
+    if (index === -1) {
+      reject(new Error("Gallery image not found"));
+      return;
+    }
+    
+    galleryImages[index] = image;
+    setTimeout(() => resolve(image), 300);
+  });
+};
+
+// Delete a gallery image
+export const deleteGalleryImage = (imageId: string): Promise<boolean> => {
+  return new Promise((resolve) => {
+    const index = galleryImages.findIndex(img => img.id === imageId);
+    if (index !== -1) {
+      galleryImages.splice(index, 1);
+    }
+    setTimeout(() => resolve(true), 300);
+  });
+};
+
+// Add a table
+export const addTable = (table: Omit<TableAvailability, "id">): Promise<TableAvailability> => {
+  return new Promise((resolve) => {
+    const newTable = {
+      ...table,
+      id: `table-${Date.now()}`
+    };
+    
+    storage.tables.push(newTable);
+    setTimeout(() => resolve(newTable), 300);
   });
 };
