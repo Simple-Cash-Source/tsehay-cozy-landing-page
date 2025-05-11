@@ -34,7 +34,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1540914124281-342587941389?w=1200&auto=format&fit=crop&q=60')" }}></div>
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 font-playfair animate-fade-in">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-restaurant-dark-green mb-4 font-playfair animate-fade-in">
             Tsehay Kitfo
           </h1>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl mx-auto animate-fade-in">

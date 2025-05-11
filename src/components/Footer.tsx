@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-restaurant-earth text-white py-12">
+    <footer className="bg-[#01534A] text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
@@ -42,7 +42,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 mt-1 flex-shrink-0" />
-                <span>123 Ethiopian Way, Addis Square, CA 90210</span>
+                <span>63 Willesden Ln, Kilburn, London NW6 7RL</span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 flex-shrink-0" />
@@ -50,7 +50,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 flex-shrink-0" />
-                <span>info@tsehaykitfo.com</span>
+                <span>info@tsehayethiopian.co.uk</span>
               </li>
               <li className="flex items-start">
                 <Clock size={18} className="mr-2 mt-1 flex-shrink-0" />

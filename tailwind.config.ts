@@ -66,9 +66,10 @@ export default {
 				restaurant: {
 					'brown': '#016257', // Changed from #8B4513 to green
 					'gold': '#D4AF37',
-					'cream': '#FFFDD0',
+					'cream': '#D9C88B', // Changed from #FFFDD0 to new color
 					'earth': '#016257', // Changed from #5E3A1A to green
 					'sage': '#BCB88A',
+					'dark-green': '#01534A', // Added new color for titles
 				},
 			},
 			fontFamily: {

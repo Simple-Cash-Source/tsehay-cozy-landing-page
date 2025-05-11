@@ -75,7 +75,7 @@ const Menu = () => {
       <section className="bg-restaurant-cream py-16">
         <div className="section-padding">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold font-playfair text-restaurant-earth mb-6">
+            <h2 className="text-3xl font-bold font-playfair text-restaurant-dark-green mb-6">
               The Ethiopian Dining Experience
             </h2>
             <p className="text-gray-700 mb-4">

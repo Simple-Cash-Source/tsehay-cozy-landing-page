@@ -19,7 +19,7 @@ const Booking = () => {
       <div className="section-padding py-16">
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-            <h2 className="text-2xl font-bold font-playfair text-restaurant-earth mb-6">
+            <h2 className="text-2xl font-bold font-playfair text-restaurant-dark-green mb-6">
               Reservation Details
             </h2>
             
@@ -41,7 +41,7 @@ const Booking = () => {
       <section className="bg-restaurant-cream py-16">
         <div className="section-padding">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold font-playfair text-restaurant-earth mb-6">
+            <h2 className="text-3xl font-bold font-playfair text-restaurant-dark-green mb-6">
               Private Events & Catering
             </h2>
             <p className="text-gray-700 mb-6">
